@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:with="num1=${10}, num2=${20}">
+        <h4 th:text="${num1+num2}"></h4>
+    </div>
+
+    <h1 th:text="${list}"></h1>
+
+    <ul>
+        <li th:each="str: ${list}" th:text="${str}"></li>
+    </ul>
+    <ul>
+        <th:block th:each="str: ${list}">
+            <li>[[${str}]]</li>
+        </th:block>
+    </ul>
+
+    <a th:href="@{/hello(name='홍길동', age=99)}">go to hello</a>
+</body>
+</html>
