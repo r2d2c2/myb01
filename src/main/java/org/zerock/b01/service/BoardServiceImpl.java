@@ -71,5 +71,4 @@ public class BoardServiceImpl implements BoardService {
                 .build();
     }
 
-
 }

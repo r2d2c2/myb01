@@ -36,21 +36,21 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
 
     @Override
     public Page<Board> searchAll(String[] types, String keyword, Pageable pageable) {
-        QBoard board = QBoard.board;
-        JPQLQuery<Board> query = from(board);
+        QBoard board = QBoard.board; // QBoard 객체 생성
+        JPQLQuery<Board> query = from(board); // 쿼리 객체 생성
 
         if((types != null) && (types.length > 0) && keyword != null) {
-            BooleanBuilder booleanBuilder = new BooleanBuilder();
+            BooleanBuilder booleanBuilder = new BooleanBuilder(); // 조건을 동적으로 추가하기 위한 객체
             for(String type : types) {
                 switch(type) {
                     case "t":
-                        booleanBuilder.or(board.title.contains(keyword));
+                        booleanBuilder.or(board.title.contains(keyword)); // title에 키워드 포함 조건
                         break;
                     case "c":
-                        booleanBuilder.or(board.content.contains(keyword));
+                        booleanBuilder.or(board.content.contains(keyword)); // content에 키워드 포함 조건
                         break;
                     case "w":
-                        booleanBuilder.or(board.writer.contains(keyword));
+                        booleanBuilder.or(board.writer.contains(keyword)); // writer에 키워드 포함 조건
                         break;
                 }
             }
@@ -65,7 +65,5 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
 
         return new PageImpl<>(list, pageable, count);
     }
-
-
 
 }

@@ -14,5 +14,4 @@ public interface BoardService {
 
     PageResponseDTO<BoardDTO> list(PageRequestDTO pageRequestDTO);
 
-
 }
