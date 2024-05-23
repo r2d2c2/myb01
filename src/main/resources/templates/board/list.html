@@ -51,9 +51,13 @@
                             <tr th:each="dto:${responseDTO.dtoList}">
                                 <th scope="row">[[${dto.bno}]]</th>
                                 <td>
-                                    <a th:href="|@{/board/read(bno=${dto.bno})}&${link}|">
+                                    <a th:href="|@{/board/read(bno=${dto.bno})}&${link}|" class="text-decoration-none">
+<!--/*                                        class="text-decoration-none" 는 링크의 파랑색 밑줄을 제거*/-->
                                     [[${dto.title}]]
                                     </a>
+                                    <span >
+                                        [[${dto.replyCount}]]
+                                    </span>
                                 </td>
                                 <td>[[${dto.writer}]]</td>
                                 <td>[[${#temporals.format(dto.regDate,'yyyy-MM-dd HH:mm')}]]</td>

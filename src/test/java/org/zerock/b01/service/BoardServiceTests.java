@@ -53,4 +53,5 @@ public class BoardServiceTests {
         log.info("테스트: " + responseDTO);
 
     }
+
 }

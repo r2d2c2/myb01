@@ -43,14 +43,15 @@
                         <input type="text" name="moddate" class="form-control"
                                th:value="${#temporals.format(dto.modDate, 'yyyy-MM-dd HH:mm:ss')}" readonly>
                     </div>
-                    <div class="my-4">
-                        <div class="float-end" >
+                        <div class="my-4">
+                            <div class="float-end" >
                                 <button type="button" class="btn btn-primary listBtn">List</button>
                                 <button type="button" class="btn btn-secondary modBtn">Modify</button>
                                 <button type="button" class="btn btn-danger removeBtn">Delete</button>
+                            </div>
                         </div>
-                    </div>
                     </form>
+
                 </div><!--end card body-->
             </div><!--end card-->
         </div><!-- end col-->
@@ -93,9 +94,6 @@
         formObj.reset()
         self.location = `/board/list?${link}`
     }, false)
-
-
-
 </script>
 
 </html>
